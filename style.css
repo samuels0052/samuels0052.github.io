@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=League+Spartan&family=Roboto:wght@400;900&display=swap');
+
 html, body {
     height: 100%;
 }
 
 body {
-    font: 20px Montserrat, sans-serif;
+    font: 20px 'Roboto', sans-serif;
     line-height: 1.8;
     color: #f5f6f7;
 }
@@ -40,7 +42,7 @@ a {
 }
 
 .bg-2 {
-    background-color: #2e72a1; /* Blue */
+    background-color: #710C04; /* Red */
     color: #ffffff;
 }
 
@@ -59,7 +61,7 @@ a {
 }
 
 .bg-4 {
-    background-color: #343a40; /* Dark Gray */
+    background-color: #000000; /* Black */
     color: #fff;
 }
 
@@ -76,6 +78,7 @@ a {
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+    background-color: #710C04 !important;
 }
 
 .navbar-nav li a:hover {

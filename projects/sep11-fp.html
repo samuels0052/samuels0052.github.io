@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title class="owner-name">#</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <link href="../prism.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand owner-name" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="github" target="_blank">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#projects">Projects</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- First Container -->
+    <div class="container-fluid bg-1">
+        <div class="container">
+
+            <h1 class="margin text-center">SEP11 Freedom Project</h1>
+            <p>This year in the 11th grade SEP course, we were tasked with creating whatever we wanted using JavaScript, and each chose a different JavaScript tool to learn that we would use on our project. I choose to learn <a href="https://firebase.google.com/">Firebase</a> but I also used <a href="https://react.dev/">React JS</a>. Firebase is a backend development platform that has a variety of useful features, such as user authentication and a real-time database. React is a very popular front-end development platform that has a component system, which helps keep your code organized. In addition, I worked with <a href="https://github.com/benjaminc8190">Benjamin Chau</a> and <a href="https://github.com/zixuany7791">Zi Xuan Yu</a> to complete my freedom project, which is a grading platform called <a href="https://ricegrades.pages.dev/">RiceGrades</a>.</p>
+
+            <p>
+                We chose to make a grading app because we saw how our school has been constantly changing which grading system is used due to varying issues, so we decided to make our own because it seemed to have real-world implementation possibilities. There were a lot of challenges when working on this project, ranging from small syntax errors to a whole feature not working the night before the SEP showcase. One challenge I had while working on this project was teachers being able to add any email address to their classroom without necessarily knowing that one was in our database. This would cause issues later on in the code, so I knew I had to find a solution. I solved this issue by looping through the array of students and checking to see if they existed in the users table of my database using the function below. If it returns <em>null</em>, then I would remove that student from the array and give the teacher an error message. Another challenge I had was redirecting users on the login page to the correct page based on their account role. The issue was that I didn't realize that when working with React, you need to use a built-in method called <em>useState()</em> to update variables instead of the standard way in JavaScript. Once I started using useState() to keep track of the changes the user made, I was able to have everything work properly. One takeaway is to not be afraid to take breaks. There were times where we could be on call for 4+ hours fixing bugs, and it would cause a big mental strain on me. I would just try to push through, but I think it would have been better for my health if I just took a couple minutes to compose myself and rest. Another takeaway has been the importance of collaboration in a group. There were times where we each had our own plans for completing the same task, which would lead to a waste of time. Instead, we should have all just come together in the first place and collaborated on one plan. A final takeaway has been to not procrastinate on projects. We were originally going to try to get this done much earlier, and as a result, we had to scramble and get a lot done during spring break to catch up, which could have been avoided. The next steps are to improve the visual quality of our project and to continue developing RiceGrades to be a better application. We plan on adding additional features such as messaging and possibly trying to get the school or DOE to use our app once it gets good enough.
+            </p>
+
+
+<pre><code class="language-js">
+function getStudents(target) {
+    return new Promise((resolve, reject) => {
+        get(child(dbRef, 'users/')).then((snapshot) => {
+        if(snapshot.exists()) {
+            const data = snapshot.val();
+            for(let key in data) {
+            console.log(data[key])
+            if(data[key].email === target) {
+
+                console.log(data[key].firstName)
+                resolve([data[key].firstName, data[key].lastName]);
+                return;
+            }
+            }
+            resolve(null);
+        } else {
+            resolve(null);
+        }
+        }).catch((error) => {
+        console.log(error);
+        reject(error);
+        })
+    })
+}
+</code></pre>
+
+            <!--EXAMPLE OF PREVIEW LINK-->
+            <a href="http://ricegrades.pages.dev">Preview</a><br>
+            <!--EXAMPLE OF GITHUB LINK-->
+            <a href="http://github.com/code2cube/RiceGrades">Github</a><br>
+
+            <a href="https://github.com/samuels0052/sep11-freedom-project">Blog</a><br>
+
+            <img src="../img/sep11-fp.png" class="img-fluid project-img">
+
+
+            <div class="row">
+
+                <!--
+                <div class="col-sm-6">
+                    Use this to...
+                </div>
+                <div class="col-sm-6">
+                    ...make two columns
+                </div>
+                -->
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-4 text-center">
+        <a href="#" target="_blank" id="fork"><img src="../img/fork.png"></a><br>
+        <a href="https://hstatsep.github.io" target="_blank"><img src="https://hstatsep.github.io/img/hstatsep-logo-small.png" id="sep"></a>
+    </footer>
+
+
+    <script src="../script.js"></script>
+    <script src="../prism.js"></script>
+</body>
+
+</html>
